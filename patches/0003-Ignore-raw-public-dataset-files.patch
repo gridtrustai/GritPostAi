@@ -1,0 +1,27 @@
+From 0068be09737dbc42bc36b9d28f280fcfba808e8c Mon Sep 17 00:00:00 2001
+From: GridTrust AI <noreply@anthropic.com>
+Date: Thu, 15 Oct 2026 21:57:59 +0100
+Subject: [PATCH 3/4] Ignore raw public dataset files
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_018pdWWS7MsbNKtbiHEdx6U9
+---
+ .gitignore | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/.gitignore b/.gitignore
+index d0ef9d5..0f9ea05 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -6,3 +6,8 @@ venv/
+ .DS_Store
+ .idea/
+ .vscode/
++
++# Raw public datasets: download them, never commit them
++LD2011_2014*
++electricityloaddiagrams*
++household_power_consumption*
+-- 
+2.43.0
+

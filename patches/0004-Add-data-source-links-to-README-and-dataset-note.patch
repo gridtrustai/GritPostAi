@@ -1,0 +1,50 @@
+From dd47694a2298797e0d5057cd65fcc025b43b2923 Mon Sep 17 00:00:00 2001
+From: GridTrust AI <noreply@anthropic.com>
+Date: Thu, 15 Oct 2026 22:14:30 +0100
+Subject: [PATCH 4/4] Add data source links to README and dataset note
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_018pdWWS7MsbNKtbiHEdx6U9
+---
+ README.md            | 11 +++++++++++
+ data/DATASET_NOTE.md |  2 ++
+ 2 files changed, 13 insertions(+)
+
+diff --git a/README.md b/README.md
+index 0800ba0..0f4ec7b 100644
+--- a/README.md
++++ b/README.md
+@@ -111,6 +111,17 @@ current, so those are simulated from the real power and the rows are marked as s
+ Outputs go to `data/uci_*.csv`, `results/uci/` and `figures/*_uci.png`; the chosen clients
+ are listed in `data/uci_client_selection.csv`.
+ 
++## Data sources
++
++| Dataset | Used for | Link |
++|---|---|---|
++| Synthetic feeder (this repo) | Phase 1 results: 5 meters, 10 labelled injected events | `src/generate_dataset.py`, [`data/`](data/) |
++| UCI ElectricityLoadDiagrams20112014 | Real measured power baseline (`--uci`): 370 clients, 15-minute kW, 2011–2014, CC BY 4.0 | <https://archive.ics.uci.edu/dataset/321/electricityloaddiagrams20112014> |
++| UCI Individual Household Electric Power Consumption | Phase 2: test the physics check on measured voltage and current (one household, 1-minute, 2006–2010, CC BY 4.0) | <https://archive.ics.uci.edu/ml/datasets/individual+household+electric+power+consumption> |
++| STEG open data (Tunisia) | Phase 2, if suitable: adapt load profiles to Tunisian patterns | <https://catalog.data.gov.tn/fr/producteurs-de-donnees/steg-tn> |
++
++Downloaded datasets are never committed; `.gitignore` blocks the raw files.
++
+ ## Repository layout
+ 
+ ```
+diff --git a/data/DATASET_NOTE.md b/data/DATASET_NOTE.md
+index 03f3432..e47bd19 100644
+--- a/data/DATASET_NOTE.md
++++ b/data/DATASET_NOTE.md
+@@ -25,6 +25,8 @@ sag and an outage). The `label` column holds the event type, `category` holds
+ 
+ ## Real measured baseline (UCI)
+ 
++Download: <https://archive.ics.uci.edu/dataset/321/electricityloaddiagrams20112014>
++
+ `python src/generate_dataset.py --uci <LD2011_2014 file>` replaces the synthetic household
+ power with real 15-minute consumption from UCI ElectricityLoadDiagrams20112014 (370 clients in
+ Portugal, 2011–2014, kW per 15 minutes, CC BY 4.0), averaged to hourly. Only power is
+-- 
+2.43.0
+

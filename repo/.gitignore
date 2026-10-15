@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.DS_Store
+.idea/
+.vscode/
+
+# Raw public datasets: download them, never commit them
+LD2011_2014*
+electricityloaddiagrams*
+household_power_consumption*

@@ -1,0 +1,11 @@
+event_id,event_type,category,meter_ids,start,end,n_hours,generation_method,is_synthetic
+EV01,spike,data_quality,meter_01,2026-01-05 04:00:00,2026-01-05 07:00:00,3,"power reading x2.6, voltage/current unchanged (measurement glitch)",True
+EV02,drop,data_quality,meter_02,2026-01-07 06:00:00,2026-01-07 10:00:00,4,"power reading x0.2, voltage/current unchanged",True
+EV03,sensor_drift,data_quality,meter_03,2026-01-09 08:00:00,2026-01-11 20:00:00,60,power reading + linear offset 0 -> 1.0 kW over 60 h,True
+EV04,persistent_bias,data_quality,meter_04,2026-01-13 12:00:00,2026-01-15 12:00:00,48,power reading x1.25 + 0.3 kW (scale and offset error),True
+EV05,frozen_sensor,data_quality,meter_05,2026-01-16 20:00:00,2026-01-17 08:00:00,12,all three channels repeat the last good value,True
+EV06,missing_data,data_quality,meter_01,2026-01-18 22:00:00,2026-01-19 05:00:00,7,all three channels missing (NaN),True
+EV07,corrupted_reading,data_quality,meter_02,2026-01-20 14:00:00,2026-01-20 18:00:00,4,"implausible values: power -2.5 kW, voltage 0 V, current 655.35 A",True
+EV08,falsified_reading,data_quality,meter_03,2026-01-22 16:00:00,2026-01-25 04:00:00,60,power and current scaled down smoothly to 60 % (consistent tampering),True
+EV09,grid_voltage_sag,grid_event,meter_01;meter_02;meter_03;meter_04;meter_05,2026-01-27 16:00:00,2026-01-27 22:00:00,6,"all meters: voltage -22 V, power x0.9, current follows physics",True
+EV10,grid_outage,grid_event,meter_01;meter_02;meter_03;meter_04;meter_05,2026-01-29 18:00:00,2026-01-29 21:00:00,3,"all meters: power, voltage and current at 0",True
